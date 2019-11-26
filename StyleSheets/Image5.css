@@ -7,7 +7,7 @@
     display: table-cell;
     height: 100px;
     width: 100px;
-    background-image: url("Mario.jpeg");
+    background-image: url("bowser.jpg");
     border: 2px black solid;
     cursor: pointer;
 }
@@ -20,7 +20,7 @@
 }
 .tile3{
     background-position: -200px 0;
- }
+}
 .tile4{
     background-position: -300px 0;
 }
