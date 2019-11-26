@@ -4,29 +4,29 @@ function swapTiles (cell1, cell2) {
     document.getElementById(cell2).className = temp;
 }
 function clickTile(row, column) {
-    var cell = document.getElementById("cell" + row + column);
-    var tile = cell.className;
-    if (tile !== "tile16 tile") {
+    const cell = document.getElementById("cell" + row + column);
+    const tile = cell.className;
+    if (tile !== "tile16") {
         if (column < 4){
-            if (document.getElementById("cell" + row + (column + 1)).className === "tile16 tile") {
+            if (document.getElementById("cell" + row + (column + 1)).className === "tile16") {
                 swapTiles("cell" + row + column, "cell" + row + (column+1));
                 return;
             }
         }
         if (column > 1) {
-            if (document.getElementById("cell" + row + (column-1)).className === "tile16 tile") {
+            if (document.getElementById("cell" + row + (column-1)).className === "tile16") {
                 swapTiles("cell" + row + column, "cell" + row + (column-1));
                 return;
             }
         }
         if (row > 1){
-            if (document.getElementById("cell" + (row-1) + column).className === "tile16 tile") {
+            if (document.getElementById("cell" + (row-1) + column).className === "tile16") {
                 swapTiles("cell" + row + column, "cell" + (row-1) + column);
                 return;
             }
         }
         if (row < 4) {
-            if (document.getElementById("cell" + (row+1) + column).className === "tile16 tile") {
+            if (document.getElementById("cell" + (row+1) + column).className === "tile16") {
                 swapTiles("cell" + row + column, "cell" + (row+1) + column);
                 return;
             }
@@ -40,6 +40,19 @@ function shuffleBruteForce() {
         clickTile(row, column);
     }
 }
-function image2(sheet) {
+function chooseImage(sheet) {
     document.getElementById('page').setAttribute('href', "./StyleSheets/" + sheet);
+}
+function chooseImageRandom() {
+    const Mario = "FifteenStyle.css";
+    const Luigi = "Image2.css";
+    const Mushroom = "Image3.css";
+    const BulletBill = "Image4.css";
+    const Bowser = "Image5.css";
+    var num = Math.floor(Math.random()*5 + 1);
+    if (num === 1){document.getElementById('page').setAttribute('href', "./StyleSheets/" + Mario);}
+    if (num === 2){document.getElementById('page').setAttribute('href', "./StyleSheets/" + Luigi);}
+    if (num === 3){document.getElementById('page').setAttribute('href', "./StyleSheets/" + Mushroom);}
+    if (num === 4){document.getElementById('page').setAttribute('href', "./StyleSheets/" + BulletBill);}
+    if (num === 5){document.getElementById('page').setAttribute('href', "./StyleSheets/" + Bowser);}
 }
