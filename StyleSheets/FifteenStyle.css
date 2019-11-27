@@ -2,6 +2,14 @@
     margin-right: auto;
     margin-left: auto;
 }
+#youwin{
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: 500px;
+}
+/* do not change anything from here */
+#table{display: table;}
 .tile1, .tile2, .tile3, .tile4, .tile5, .tile6, .tile7, .tile8, .tile9, .tile10, .tile11,
 .tile12, .tile13, .tile14, .tile15, .tile16{
     display: table-cell;
@@ -11,7 +19,6 @@
     border: 2px black solid;
     cursor: pointer;
 }
-
 .tile1{
     background-position: 0 0;
 }
@@ -60,3 +67,4 @@
 .tile16{
     background: white; cursor: default;
 }
+/* to here - important to game functionality (applies to the other css files) */

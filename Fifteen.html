@@ -8,38 +8,42 @@
 </head>
 <body  onload="chooseImageRandom()">
 <div class="container">
-<div id="table" style="display: table;">
+<div id="table">
     <div id="row1" style="display: table-row;">
-        <div id="cell11" class="tile1" onClick="clickTile(1,1)"></div>
-        <div id="cell12" class="tile2" onClick="clickTile(1,2)"></div>
-        <div id="cell13" class="tile3" onClick="clickTile(1,3)"></div>
-        <div id="cell14" class="tile4" onclick="clickTile(1,4)"></div>
+        <div id="cell11" class="tile1" onClick="PlayerMove(1,1)"></div>
+        <div id="cell12" class="tile2" onClick="PlayerMove(1,2)"></div>
+        <div id="cell13" class="tile3" onClick="PlayerMove(1,3)"></div>
+        <div id="cell14" class="tile4" onclick="PlayerMove(1,4)"></div>
     </div>
     <div id="row2" style="display: table-row;">
-        <div id="cell21" class="tile5" onClick="clickTile(2,1)"></div>
-        <div id="cell22" class="tile6" onClick="clickTile(2,2)"></div>
-        <div id="cell23" class="tile7" onClick="clickTile(2,3)"></div>
-        <div id="cell24" class="tile8" onclick="clickTile(2,4)"></div>
+        <div id="cell21" class="tile5" onClick="PlayerMove(2,1)"></div>
+        <div id="cell22" class="tile6" onClick="PlayerMove(2,2)"></div>
+        <div id="cell23" class="tile7" onClick="PlayerMove(2,3)"></div>
+        <div id="cell24" class="tile8" onclick="PlayerMove(2,4)"></div>
     </div>
     <div id="row3" style="display: table-row;">
-        <div id="cell31" class="tile9" onClick="clickTile(3,1)"></div>
-        <div id="cell32" class="tile10" onClick="clickTile(3,2)"></div>
-        <div id="cell33" class="tile11" onClick="clickTile(3,3)"></div>
-        <div id="cell34" class="tile12" onclick="clickTile(3,4)"></div>
+        <div id="cell31" class="tile9" onClick="PlayerMove(3,1)"></div>
+        <div id="cell32" class="tile10" onClick="PlayerMove(3,2)"></div>
+        <div id="cell33" class="tile11" onClick="PlayerMove(3,3)"></div>
+        <div id="cell34" class="tile12" onclick="PlayerMove(3,4)"></div>
     </div>
     <div id="row4" style="display: table-row;">
-        <div id="cell41" class="tile13" onClick="clickTile(4,1)"></div>
-        <div id="cell42" class="tile14" onClick="clickTile(4,2)"></div>
-        <div id="cell43" class="tile15" onClick="clickTile(4,3)"></div>
-        <div id="cell44" class="tile16" onclick="clickTile(4,4)"></div>
+        <div id="cell41" class="tile13" onClick="PlayerMove(4,1)"></div>
+        <div id="cell42" class="tile14" onClick="PlayerMove(4,2)"></div>
+        <div id="cell43" class="tile15" onClick="PlayerMove(4,3)"></div>
+        <div id="cell44" class="tile16" onclick="PlayerMove(4,4)"></div>
     </div>
 </div>
     <button onclick="shuffleBruteForce()">New Game</button>
-    <button onclick="chooseImage('FifteenStyle.css')">Mario Image</button>
-    <button onclick="chooseImage('Image2.css')">Luigi Image</button>
-    <button onclick="chooseImage('Image3.css')">Mushroom Image</button>
-    <button onclick="chooseImage('Image4.css')">Bullet Bill Image</button>
-    <button onclick="chooseImage('Image5.css')">Bowser Image</button>
+    <button onclick="chooseImage('FifteenStyle.css')">Mario Puzzle</button>
+    <button onclick="chooseImage('Image2.css')">Luigi Puzzle</button>
+    <button onclick="chooseImage('Image3.css')">Mushroom Puzzle</button>
+    <button onclick="chooseImage('Image4.css')">Goomba Puzzle</button>
+    <button onclick="chooseImage('Image5.css')">Bowser Puzzle</button>
+</div>
+<div id="youwin" style="display: none">
+    <span id="YouWon">You Win!</span> <!-- Need to Style YouWon-->
+    <img src="http://codd.cs.gsu.edu/~rquillian1/marioVictory.png" alt="none"/>
 </div>
 </body>
 </html>
