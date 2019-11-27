@@ -44,12 +44,15 @@ function PlayerMove(row, column) {
 }
 function shuffleBruteForce() {
     ResetYouWon();
+    totalMoves = 0;
     for (var i=0; i < 10000; i++){
            var row = Math.floor(Math.random()*4 + 1);
            var column = Math.floor(Math.random()*4 + 1);
         clickTile(row, column);
     }
-}
+    reset();
+    start();
+} //method to start game - New Game button
 function chooseImage(sheet) {
     document.getElementById('page').setAttribute('href', "./StyleSheets/" + sheet);
 }
@@ -85,7 +88,7 @@ function solved() {
         }
         if (boolean === 0){break;}
     }
-    if (boolean === 1){YouWon();}
+    if (boolean === 1){ reset(); YouWon();}
 }
 function YouWon(){
     document.getElementById('youwin').style.display = 'block';
@@ -93,3 +96,69 @@ function YouWon(){
 function ResetYouWon() {
     document.getElementById('youwin').style.display = 'none';
 }
+
+var t;
+var time = 0;
+var running = 0;
+var mins=0, secs=0, tenths=0;
+function start(){
+        running = 1;
+        increment();
+}
+function reset(){
+    running = 0;
+    time = 0;
+    clearTimeout(t);
+    document.getElementById("Watch").innerHTML = "00:00:00";
+}
+function increment(){
+    if(running === 1){
+       t = setTimeout(function(){
+            time++;
+            mins = Math.floor(time / 10 / 60 % 60);
+            if(mins <= 9){
+                mins = "0" + mins;
+            }
+            secs = Math.floor(time / 10 % 60);
+            if(secs <= 9){
+                secs = "0" + secs;
+            }
+            tenths = Math.floor(time % 10);
+            if(tenths <= 9){
+                tenths = "0" + tenths;
+            }
+            document.getElementById("Watch").innerHTML = mins + ":" + secs + ":" + tenths;
+            increment();
+        }, 100);
+    }
+}
+
+//fix ---------------------
+var array = new Array(5);
+var index = 0;
+function updateScore(){
+    if(index < 5) {
+        array.push({id:index, time:time, moves:totalMoves});
+        index++;
+        array.sort(function(a, b){return a.time-b.time});
+    }
+    else{
+        if (time < array[4].time){
+            array.pop();
+            array.push({id:index, time:time, moves:totalMoves});
+            array.sort(function(a, b){return a.time-b.time});
+        }
+    }
+    displayTime();
+}
+function displayTime() {
+    let sb = "time";
+    let mv = "move";
+    for (let i=0; i<5; i++){
+        let temp = document.getElementById(sb+i);
+        let tempM = document.getElementById(mv+i);
+        temp.textContent = array[i].time;
+        tempM.textContent = array[i].moves;
+    }
+}
+//fix --------------------------------

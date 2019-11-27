@@ -7,6 +7,7 @@
     <script type="text/javascript" src="./Fifteen.js"></script>
 </head>
 <body  onload="chooseImageRandom()">
+<div id="Watch"><time>00:00:00</time></div>
 <div class="container">
 <div id="table">
     <div id="row1" style="display: table-row;">
@@ -34,16 +35,50 @@
         <div id="cell44" class="tile16" onclick="PlayerMove(4,4)"></div>
     </div>
 </div>
-    <button onclick="shuffleBruteForce()">New Game</button>
+    <button id="start" onclick="shuffleBruteForce()">New Game</button>
     <button onclick="chooseImage('FifteenStyle.css')">Mario Puzzle</button>
     <button onclick="chooseImage('Image2.css')">Luigi Puzzle</button>
     <button onclick="chooseImage('Image3.css')">Mushroom Puzzle</button>
     <button onclick="chooseImage('Image4.css')">Goomba Puzzle</button>
     <button onclick="chooseImage('Image5.css')">Bowser Puzzle</button>
 </div>
-<div id="youwin" style="display: none">
+    <div id="youwin" style="display: none">
     <span id="YouWon">You Win!</span> <!-- Need to Style YouWon-->
     <img src="http://codd.cs.gsu.edu/~rquillian1/marioVictory.png" alt="none"/>
 </div>
+<!-- ignore table from here -->
+<table id="score">
+    <tr>
+        <th></th>
+        <th>Time</th>
+        <th># of Moves</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td id="time1"></td>
+        <td id="move1"></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td id="time2"></td>
+        <td id="move2"></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td id="time3"></td>
+        <td id="move3"></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td id="time4"></td>
+        <td id="move4"></td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td id="time5"></td>
+        <td id="move5"></td>
+    </tr>
+</table>
+<!-- to here - Needs to Be Fixed-->
 </body>
 </html>
