@@ -1,7 +1,7 @@
 var totalMoves = 0;
 function resetMoves() {
     totalMoves = 0;
-}
+} //new method to reset total moves counter
 function swapTiles (cell1, cell2) {
     var temp = document.getElementById(cell1).className;
     document.getElementById(cell1).className = document.getElementById(cell2).className;
@@ -91,7 +91,7 @@ function solved() {
         }
         if (boolean === 0){break;}
     }
-    if (boolean === 1){ scores(); reset(); resetMoves(); YouWon();}
+    if (boolean === 1){ scores(); reset(); resetMoves(); YouWon();} //add the method scores(); before reset(); and add resetMoves(); after reset();
 }
 function YouWon(){
     document.getElementById('youwin').style.display = 'block';
