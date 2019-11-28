@@ -1,4 +1,7 @@
 var totalMoves = 0;
+function resetMoves() {
+    totalMoves = 0;
+}
 function swapTiles (cell1, cell2) {
     var temp = document.getElementById(cell1).className;
     document.getElementById(cell1).className = document.getElementById(cell2).className;
@@ -88,7 +91,7 @@ function solved() {
         }
         if (boolean === 0){break;}
     }
-    if (boolean === 1){ reset(); YouWon();}
+    if (boolean === 1){ scores(); reset(); resetMoves(); YouWon();}
 }
 function YouWon(){
     document.getElementById('youwin').style.display = 'block';
@@ -133,32 +136,32 @@ function increment(){
     }
 }
 
-//fix ---------------------
-var array = new Array(5);
-var index = 0;
-function updateScore(){
-    if(index < 5) {
-        array.push({id:index, time:time, moves:totalMoves});
-        index++;
-        array.sort(function(a, b){return a.time-b.time});
-    }
-    else{
-        if (time < array[4].time){
-            array.pop();
-            array.push({id:index, time:time, moves:totalMoves});
-            array.sort(function(a, b){return a.time-b.time});
-        }
-    }
-    displayTime();
+//FIXED -- Make sure the id tags on the columns are time1 move1 - time2 move2 - etc
+var times = "time";
+var moves = "move";
+var array = {};
+function addScoreToArray() {
+    array[time/10] = totalMoves;
 }
-function displayTime() {
-    let sb = "time";
-    let mv = "move";
-    for (let i=0; i<5; i++){
-        let temp = document.getElementById(sb+i);
-        let tempM = document.getElementById(mv+i);
-        temp.textContent = array[i].time;
-        tempM.textContent = array[i].moves;
+function scores() {
+    addScoreToArray();
+    let length = Object.keys(array).length;
+    let tempMoves = [];
+    let tempTimes = Object.keys(array);
+    tempTimes.sort(function (a, b) {
+        return b - a
+    });
+    for (const [key, value] of Object.entries(array)) {
+        tempMoves.push(value);
+    }
+    tempMoves.sort(function (a, b) {
+        return b - a
+    });
+    for (let i = 0; i < length; i++) {
+        console.log(times+(i+1));
+        console.log(moves + (i+1));
+        document.getElementById(times + (i + 1)).innerText = tempTimes[i] + " seconds";
+        document.getElementById(moves + (i + 1)).innerText = tempMoves[i] + " moves";
     }
 }
-//fix --------------------------------
+//FIXED --------------------------------
